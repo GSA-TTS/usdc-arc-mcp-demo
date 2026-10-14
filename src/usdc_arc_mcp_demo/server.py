@@ -2,10 +2,10 @@ import fastmcp
 from dotenv import load_dotenv
 
 from .tools import (
+    agency_tools,
+    aggregation_tools,
     multiple_reports_tools,
     single_report_tool,
-    aggregation_tools,
-    agency_tools,
 )
 
 load_dotenv()

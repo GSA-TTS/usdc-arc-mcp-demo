@@ -1,9 +1,10 @@
 from typing import Any
+
 from ..api_client import get
 from ..models.multiple_reports_models import (
-    ReportParams,
     AgencyReportParams,
     DomainReportParams,
+    ReportParams,
 )
 
 

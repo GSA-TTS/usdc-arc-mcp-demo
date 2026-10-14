@@ -1,18 +1,19 @@
-from collections import defaultdict
-from datetime import datetime
-from typing import List, Dict, Any, Callable, Optional
 import asyncio
+from collections import defaultdict
+from collections.abc import Callable
+from datetime import datetime
+from typing import Any
 
 from .constants import MAX_PAGE_SIZE, AggregationLevel
 
 
 def aggregate_by_period(
-    data: List[Dict[str, Any]],
+    data: list[dict[str, Any]],
     period: AggregationLevel,
     value_key: str = "visits",
     date_key: str = "date",
-    group_by: Optional[List[str]] = None,
-) -> List[Dict[str, Any]]:
+    group_by: list[str] | None = None,
+) -> list[dict[str, Any]]:
     """
     Aggregates data points by week, month, or year, and optionally by multiple fields.
 
@@ -58,11 +59,11 @@ def aggregate_by_period(
 async def fetch_all_pages(
     get_func: Callable,
     endpoint: str,
-    params: Dict[str, Any],
+    params: dict[str, Any],
     page_param: str = "page",
     page_size_param: str = "limit",
     concurrency: int = 5,
-) -> List[Any]:
+) -> list[Any]:
     """
     Fetches all pages from an API endpoint in parallel until no results are returned.
 

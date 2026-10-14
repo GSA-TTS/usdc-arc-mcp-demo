@@ -1,27 +1,24 @@
-from typing import Optional
 from pydantic import BaseModel, Field, field_validator
 
 
 class QueryParams(BaseModel):
-    after: Optional[str] = Field(None, description="Start date (YYYY-MM-DD)")
-    before: Optional[str] = Field(None, description="End date (YYYY-MM-DD)")
-    limit: Optional[int] = Field(None, description="Number of results per page")
-    page: Optional[int] = Field(None, description="Page number for pagination")
+    after: str | None = Field(None, description="Start date (YYYY-MM-DD)")
+    before: str | None = Field(None, description="End date (YYYY-MM-DD)")
+    limit: int | None = Field(None, description="Number of results per page")
+    page: int | None = Field(None, description="Page number for pagination")
 
 
 class BaseReportParams(BaseModel):
     report_name: str = Field(
         ..., description="Report type (e.g., site, download, os, traffic-source)"
     )
-    query_params: Optional[QueryParams] = Field(
+    query_params: QueryParams | None = Field(
         ..., description="Additional query parameters"
     )
 
 
 class ReportParams(BaseReportParams):
     """Parameters for global reports."""
-
-    pass
 
 
 class AgencyReportParams(BaseReportParams):

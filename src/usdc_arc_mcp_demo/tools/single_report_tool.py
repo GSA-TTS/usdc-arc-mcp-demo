@@ -1,4 +1,5 @@
-from typing import Any, Literal, Optional
+from typing import Any, Literal
+
 from ..api_client import get
 
 
@@ -7,12 +8,12 @@ def register_tools(mcp):
     async def get_report(
         scope: Literal["reports", "agencies", "domain"],
         report_name: str,
-        agency: Optional[str] = None,
-        domain: Optional[str] = None,
-        after: Optional[str] = None,
-        before: Optional[str] = None,
-        limit: Optional[int] = None,
-        page: Optional[int] = None,
+        agency: str | None = None,
+        domain: str | None = None,
+        after: str | None = None,
+        before: str | None = None,
+        limit: int | None = None,
+        page: int | None = None,
     ) -> Any:
         """Fetches a report based on the given parameters.
 

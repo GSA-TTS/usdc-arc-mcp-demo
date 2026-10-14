@@ -1,11 +1,12 @@
 import os
+from typing import Any
+
 import httpx
-from typing import Any, Dict, Optional
 
 API_BASE = "https://api.gsa.gov/analytics/dap/v2"
 
 
-async def get(endpoint: str, params: Optional[Dict[str, Any]] = None) -> Any:
+async def get(endpoint: str, params: dict[str, Any] | None = None) -> Any:
     headers = {"x-api-key": os.getenv("DAP_API_KEY", "DEMO_KEY")}
 
     url = f"{API_BASE}{endpoint}"

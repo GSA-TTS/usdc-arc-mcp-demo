@@ -1,12 +1,13 @@
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from ..api_client import get
-from ..constants import REPORT_GROUP_BY, MCP_TOOL_LIST_LIMIT, AggregationLevel
+from ..constants import MCP_TOOL_LIST_LIMIT, REPORT_GROUP_BY, AggregationLevel
 from ..models.aggregation_models import (
-    ReportParams,
     AgencyReportParams,
     DomainReportParams,
     QueryParams,
+    ReportParams,
 )
 from ..utils import aggregate_by_period, fetch_all_pages
 
